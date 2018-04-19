@@ -15,7 +15,7 @@
 				<router-link to="/page/group" style="color: rgb(42, 184, 204);">小组</router-link>
 			</li>
 		</ul>
-		<span class="search"></span>
+		<span class="search"><router-link to="/page/search" style="display: inline-block;width: 100%;height: 100%"></router-link></span>
 	</div>
 </template>
 

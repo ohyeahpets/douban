@@ -7,6 +7,10 @@ import Group from 'components/group/group'
 import Status from 'components/status/status'
 import Book from 'components/book/book'
 import Register from 'components/register/register'
+import Search from 'components/search/search'
+import Login from 'components/login/login'
+import newMovie from 'components/newMovie/newMovie'
+
 
 
 
@@ -51,6 +55,21 @@ export default new Router({
             path: '/page/register',
             name: 'register',
             component: Register
+        },
+        {
+            path: '/page/search',
+            name: 'search',
+            component: Search
+        },
+        {
+            path: '/page/login',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/page/newMovie',
+            name: 'new-movie',
+            component: newMovie
         }
 	]
 })

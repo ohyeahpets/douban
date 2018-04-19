@@ -16,7 +16,6 @@
     #app {
         max-width: pxTorem(750px);
         margin: 0 auto;
-        overflow: hidden;
         height: 100%;
     }
 </style>

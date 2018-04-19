@@ -12,13 +12,13 @@
                         <router-link to="/page/movie">影院热映</router-link>
                     </div>
                     <div class="login_view_item">
-                        <router-link to="">欧美新碟榜</router-link>
+                        <router-link to="/page/newMovie">欧美新碟榜</router-link>
                     </div>
                     <div class="login_view_item">
                         <router-link to="/page/register">注册帐号</router-link>
                     </div>
                     <div class="login_view_item">
-                        <router-link to="">登录豆瓣</router-link>
+                        <router-link to="/page/login">登录豆瓣</router-link>
                     </div>
                 </section>
                 <ul>
