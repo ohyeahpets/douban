@@ -3,7 +3,7 @@
         <mHeader></mHeader>
         <section id="list" class="list">
             <loading :data="collection"></loading>
-            <router-link to="" class="item" v-for="item in collection">
+            <a herf="javascript:;" class="item" v-for="item in collection" @click="toItemDetail(item.id)">
                 <div class="cover">
                     <div class="wp ratio1_1">
                         <img :src="item.cover.url"
@@ -16,17 +16,19 @@
                     <h4></h4>
                     <h3>{{item.title}}</h3>
                     <p class="rank">
-                        <span class="rating-stars" data-rating="3.3"><span
-                                class="rating-star rating-star-small-full"></span><span
-                                class="rating-star rating-star-small-full"></span><span
-                                class="rating-star rating-star-small-full"></span><span
-                                class="rating-star rating-star-small-gray"></span><span
-                                class="rating-star rating-star-small-gray"></span></span> <span>{{parseFloat(item.rating.value)}}</span>
+                        <!--<span class="rating-stars" data-rating="3.3"><span-->
+                                <!--class="rating-star rating-star-small-full"></span><span-->
+                                <!--class="rating-star rating-star-small-full"></span><span-->
+                                <!--class="rating-star rating-star-small-full"></span><span-->
+                                <!--class="rating-star rating-star-small-gray"></span><span-->
+                                <!--class="rating-star rating-star-small-gray"></span></span>-->
+                        <Ratings :score="parseFloat(item.rating.value)"></Ratings>
+                        <span style="margin-left: 7px">{{ratingItem(item)}}</span>
                     </p>
                     <p class="meta">{{item.info}}</p>
                     <cite></cite>
                 </div>
-            </router-link>
+            </a>
         </section>
     </div>
 </template>
@@ -35,12 +37,14 @@
     import mHeader from 'components/mHeader/mHeader'
     import axios from 'axios'
     import loading from 'base/loading/loading'
+    import Ratings from 'base/ratings/ratings'
 
     export default {
         name: "new-movie",
         components: {
             mHeader,
-            loading
+            loading,
+            Ratings
         },
         data() {
             return {
@@ -54,6 +58,16 @@
             }).catch((err) => {
                 console.log(err)
             })
+        },
+        computed:{
+        },
+        methods: {
+            toItemDetail(id) {
+                this.$router.push({path: `/page/itemDetail/${id}`})
+            },
+            ratingItem(item) {
+                return Math.round(parseFloat(item.rating.value)*10)/10
+            }
         }
     }
 </script>
@@ -121,6 +135,8 @@
 
     .list .item .rank {
         font-size: 12px;
+        display: flex;
+        align-items: center;
     }
 
     .list .item .meta, .list .item .star {

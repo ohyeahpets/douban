@@ -10,6 +10,7 @@ import Register from 'components/register/register'
 import Search from 'components/search/search'
 import Login from 'components/login/login'
 import newMovie from 'components/newMovie/newMovie'
+import itemDetail from 'components/itemDetail/itemDetail'
 
 
 
@@ -70,6 +71,11 @@ export default new Router({
             path: '/page/newMovie',
             name: 'new-movie',
             component: newMovie
+        },
+        {
+            path: '/page/itemDetail/:id',
+            name: 'item-detail',
+            component: itemDetail
         }
 	]
 })
